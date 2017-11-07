@@ -14,20 +14,20 @@
     
     Method systimeFont = class_getClassMethod(self, @selector(systemFontOfSize:));
     
-    Method qsh_systimeFont = class_getClassMethod(self, @selector(qsh_systemFontOfSize:));
+    Method ll_systimeFont = class_getClassMethod(self, @selector(ll_systemFontOfSize:));
     // 交换方法
-    method_exchangeImplementations(qsh_systimeFont, systimeFont);
+    method_exchangeImplementations(ll_systimeFont, systimeFont);
     
 }
 
 
-+ (UIFont *)qsh_systemFontOfSize:(CGFloat)pxSize{
++ (UIFont *)ll_systemFontOfSize:(CGFloat)pxSize{
     
     CGFloat pt = (pxSize/96)*72;
     
     NSLog(@"pt--%f",pt);
     
-    UIFont *font = [UIFont qsh_systemFontOfSize:pt];
+    UIFont *font = [UIFont ll_systemFontOfSize:pt];
     
     return font;
     
